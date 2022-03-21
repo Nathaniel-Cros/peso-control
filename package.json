@@ -1,0 +1,13 @@
+{
+  "name": "backendPeso",
+  "version": "0.0.1",
+  "description": "Backend peso control",
+  "main": "index.js",
+  "author": "NathanielCros",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "morgan": "^1.10.0"
+  }
+}
