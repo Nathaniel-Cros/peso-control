@@ -19,7 +19,7 @@ const Users = db.define('users', {
         type: DataTypes.STRING,
     },
     birthday: {
-        type: DataTypes.DATE,
+        type: DataTypes.STRING,
     },
     gender: {
         type: DataTypes.STRING,
