@@ -16,6 +16,14 @@ class ServerClass {
     }
 
     Routes() {
+        this.app.get('/', (req, res) => {
+            try {
+                res.status(200).send("Peso Control Backend")
+            } catch (err) {
+                console.error("Error en el server is", err)
+                res.status(500).send("Error en server, ver consola")
+            }
+        })
         this.app.use('/users', require('./Routes/User'))
     }
 
