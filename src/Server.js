@@ -24,6 +24,7 @@ class ServerClass {
                 res.status(500).send("Error en server, ver consola")
             }
         })
+        this.app.use('/auth', require('./Routes/Auth'))
         this.app.use('/users', require('./Routes/User'))
     }
 
