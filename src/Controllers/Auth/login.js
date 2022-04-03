@@ -1,5 +1,4 @@
 const { response } = require('express')
-//const { validationResult } = require('express-validator')
 //const bcrypt = require('bcryptjs')
 
 const {returnSuccessInfo} = require('../../functions/returnSuccessInfo')

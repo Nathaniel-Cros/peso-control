@@ -7,6 +7,7 @@ const { DeleteUser } = require('../../Controllers/Users/delete')
 const { UpdateUser } = require('../../Controllers/Users/update')
 const { GetUser } = require('../../Controllers/Users/get')
 const { GetAllUsers } = require('../../Controllers/Users/getAll')
+const { infoValidate } = require('../../Middlewares/infoValidate')
 
 router.get('/all', GetAllUsers )
 
@@ -24,6 +25,7 @@ router.post('/', [
     check('birthday', 'Birthday is required').not().isEmpty(),
     check('birthday', 'Birthday is not a date').isDate(),
     check('height', 'Height is required').isDecimal(),
+    infoValidate,
 ],AddUser )
 
 router.put('/', UpdateUser )

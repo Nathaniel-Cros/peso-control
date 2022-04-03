@@ -1,5 +1,4 @@
 const { response } = require('express')
-const { validationResult } = require('express-validator')
 const bcrypt = require('bcryptjs')
 
 const {returnSuccessInfo} = require('../../functions/returnSuccessInfo')
@@ -9,11 +8,6 @@ const {Users} = require("../../Models/users");
 
 const AddUser = async (req, res = response) => {
     try {
-        const error = validationResult(req)
-        console.log("Error",error)
-        if (!error.isEmpty()) {
-            return res.status(400).json(returnError('add user', error))
-        }
         const { body } = req
 
         const emailExist = await Users.findOne({
