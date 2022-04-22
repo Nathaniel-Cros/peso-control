@@ -8,10 +8,15 @@ const { UpdateUser } = require('../../Controllers/Users/update')
 const { GetUser } = require('../../Controllers/Users/get')
 const { GetAllUsers } = require('../../Controllers/Users/getAll')
 const { infoValidate } = require('../../Middlewares/infoValidate')
+const { validateJWT } = require('../../middlewares/validateJWT')
 
-router.get('/all', GetAllUsers )
+router.get('/all',[
+    validateJWT
+], GetAllUsers )
 
-router.get('/', GetUser )
+router.get('/',[
+    validateJWT
+], GetUser )
 
 router.post('/', [
     check('email', 'Email invalid').isEmail(),
@@ -28,8 +33,12 @@ router.post('/', [
     infoValidate,
 ],AddUser )
 
-router.put('/', UpdateUser )
+router.put('/',[
+    validateJWT
+], UpdateUser )
 
-router.delete('/', DeleteUser )
+router.delete('/',[
+    validateJWT
+], DeleteUser )
 
 module.exports = router

@@ -27,8 +27,8 @@ const Login = async (req, res = response) => {
 
         const user = {...userFind?.dataValues}
 
-        console.log(delete user.id)
-        console.log(delete user.password)
+        delete user.id
+        delete user.password
 
         res.status(200).json(returnSuccessInfo('Login', {
             token: JWT,

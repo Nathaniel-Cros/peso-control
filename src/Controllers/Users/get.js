@@ -1,10 +1,24 @@
 const {returnSuccessInfo} = require('../../functions/returnSuccessInfo')
 const {returnError} = require('../../functions/returnError')
 const { response } = require('express')
+const {Users} = require("../../Models/users");
 
-const GetUser = (req, res = response) => {
+const GetUser = async (req, res = response) => {
     try {
-        res.status(200).json(returnSuccessInfo('get user', {user: 1}))
+        const uid = req.uid
+
+        const userFind = await Users.findOne({
+            where: {
+                id: uid
+            }
+        })
+
+        const user = {...userFind?.dataValues}
+
+        delete user.id
+        delete user.password
+
+        res.status(200).json(returnSuccessInfo('get user', {user}))
     } catch (e) {
         res.status(500).json(returnError('get user', e))
     }

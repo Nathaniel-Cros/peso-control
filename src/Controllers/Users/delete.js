@@ -1,13 +1,31 @@
-const {returnSuccessInfo} = require('../../functions/returnSuccessInfo')
+//const {returnSuccessInfo} = require('../../functions/returnSuccessInfo')
 const {returnError} = require('../../functions/returnError')
-const { response } = require('express')
+const { response, request } = require('express')
+const {Users} = require("../../Models/users");
 
 
-const DeleteUser = (req, res = response) => {
+const DeleteUser = async (req = request, res = response) => {
     try {
-        res.status(200).json(returnSuccessInfo('delte user', {user: 1}))
+        const uid = req.uid
+
+        const userFind = await Users.findOne({
+            where: {
+                id: uid
+            }
+        })
+
+        if( userFind ) {
+            await Users.destroy({
+                where: {
+                    id: uid
+                },
+                force: true
+            })
+        }
+
+        return res.status(204).json({})
     } catch (e) {
-        res.status(500).json(returnError('delete user', e))
+        return res.status(500).json(returnError('delete user', e))
     }
 }
 
