@@ -5,6 +5,9 @@
   "main": "index.js",
   "author": "NathanielCros",
   "license": "MIT",
+  "engines": {
+    "node": "16.x"
+  },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
