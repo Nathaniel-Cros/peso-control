@@ -1,18 +1,23 @@
-const {returnSuccessInfo} = require('../../functions/returnSuccessInfo')
-const {returnError} = require('../../functions/returnError')
 const { response } = require('express')
 
+const { returnError, returnSuccessInfo } = require('../../functions')
+const {History} = require('../../Models/history')
 
-const AddUser = (req, res = response) => {
+const AddHistory = async (req, res = response) => {
     try {
-        const body = JSON.parse(req.body)
-        console.log(`Body -> ${JSON.stringify(body)}`,)
-        res.status(201).json(returnSuccessInfo('new user', {user: 1}))
+        const userId = req.uid
+        const { weight, hasCalories, calories, hasWater, litersWater } = req.body
+
+        const newRegister = new History({userId, weight, hasCalories, calories, hasWater, litersWater})
+
+        await newRegister.save()
+
+        res.status(201).json(returnSuccessInfo('new History', {History: newRegister}))
     } catch (e) {
-        res.status(500).json(returnError('new user', e))
+        res.status(500).json(returnError('new History', e))
     }
 }
 
 module.exports = {
-    AddUser
+    AddHistory
 }

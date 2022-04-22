@@ -1,17 +1,24 @@
-const {returnSuccessInfo} = require('../../functions/returnSuccessInfo')
-const {returnError} = require('../../functions/returnError')
 const { response } = require('express')
 
+const { returnError, returnSuccessInfo } = require('../../functions')
+const {History} = require('../../Models/history')
 
-const GetAllUsers = (req, res = response) => {
+const GetAllHistories = async (req, res = response) => {
     try {
-        res.status(200).json(returnSuccessInfo('get all users', [{user: 1},{user: 2}]))
+        const { uid:userId } = req
+        const Histories = await History.findAll({
+            where: {
+                userId
+            }
+        })
+
+        res.status(200).json(returnSuccessInfo('get all Historys', {Histories}))
     } catch (e) {
         console.error("Error in server")
-        res.status(500).json(returnError('get all users', e))
+        res.status(500).json(returnError('get all Historys', e))
     }
 }
 
 module.exports = {
-    GetAllUsers
+    GetAllHistories
 }

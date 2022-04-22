@@ -25,6 +25,7 @@ class ServerClass {
             }
         })
         this.app.use('/auth', require('./Routes/Auth'))
+        this.app.use('/registers', require('./Routes/Registers'))
         this.app.use('/users', require('./Routes/User'))
     }
 
