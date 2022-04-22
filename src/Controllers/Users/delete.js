@@ -1,7 +1,7 @@
-//const {returnSuccessInfo} = require('../../functions/returnSuccessInfo')
-const {returnError} = require('../../functions/returnError')
 const { response, request } = require('express')
 const {Users} = require("../../Models/users");
+
+const { returnError} = require('../../functions')
 
 
 const DeleteUser = async (req = request, res = response) => {

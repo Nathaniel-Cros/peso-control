@@ -1,8 +1,8 @@
-const {returnSuccessInfo} = require('../../functions/returnSuccessInfo')
-const {returnError} = require('../../functions/returnError')
 const { response } = require('express')
 
 const { Users } = require('../../Models/users')
+
+const { returnError, returnSuccessInfo} = require('../../functions')
 
 
 const GetAllUsers = async (req, res = response) => {

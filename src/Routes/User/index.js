@@ -2,13 +2,9 @@ const { Router } = require('express')
 const { check } = require('express-validator')
 const router = Router()
 
-const { AddUser } = require('../../Controllers/Users/add')
-const { DeleteUser } = require('../../Controllers/Users/delete')
-const { UpdateUser } = require('../../Controllers/Users/update')
-const { GetUser } = require('../../Controllers/Users/get')
-const { GetAllUsers } = require('../../Controllers/Users/getAll')
-const { infoValidate } = require('../../Middlewares/infoValidate')
-const { validateJWT } = require('../../middlewares/validateJWT')
+const { AddUser, DeleteUser, UpdateUser, GetUser, GetAllUsers} = require('../../Controllers/Users')
+
+const { infoValidate, validateJWT } = require('../../middlewares')
 
 router.get('/all',[
     validateJWT

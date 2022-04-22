@@ -1,9 +1,8 @@
-const {returnSuccessInfo} = require('../../functions/returnSuccessInfo')
-const {returnError} = require('../../functions/returnError')
 const { response } = require('express')
 const {Users} = require('../../Models/users')
 const bcrypt = require('bcryptjs')
 
+const { returnError, returnSuccessInfo} = require('../../functions')
 
 const UpdateUser = async (req, res = response) => {
     try {

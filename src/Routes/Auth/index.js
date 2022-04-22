@@ -3,7 +3,7 @@ const { check } = require('express-validator')
 const router = Router()
 
 const { Login } = require('../../Controllers/Auth/login')
-const {infoValidate} = require("../../middlewares/infoValidate");
+const {infoValidate} = require('../../middlewares')
 
 router.post('/login', [
     check('email', 'Email required').not().isEmpty(),

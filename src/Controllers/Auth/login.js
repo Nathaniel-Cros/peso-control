@@ -1,10 +1,9 @@
 const { response } = require('express')
 const bcrypt = require('bcryptjs')
 
-const {returnSuccessInfo} = require('../../functions/returnSuccessInfo')
-const {returnError} = require('../../functions/returnError')
-const {generatedJWT} = require('../../functions/GeneratorJWT')
-const {Users} = require("../../Models/users");
+const { returnError, returnSuccessInfo, generatedJWT } = require('../../functions')
+
+const {Users} = require('../../Models/users')
 
 const Login = async (req, res = response) => {
     try {
