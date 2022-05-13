@@ -1,6 +1,6 @@
 const { response } = require('express')
 
-const { returnError } = require('../../functions')
+const { returnError } = require('../../Functions')
 const {History} = require('../../Models/history')
 
 

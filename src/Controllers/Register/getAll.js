@@ -1,6 +1,6 @@
 const { response } = require('express')
 
-const { returnError, returnSuccessInfo } = require('../../functions')
+const { returnError, returnSuccessInfo } = require('../../Functions')
 const {History} = require('../../Models/history')
 
 const GetAllHistories = async (req, res = response) => {

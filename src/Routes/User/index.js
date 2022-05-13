@@ -4,7 +4,7 @@ const router = Router()
 
 const { AddUser, DeleteUser, UpdateUser, GetUser, GetAllUsers} = require('../../Controllers/Users')
 
-const { infoValidate, validateJWT } = require('../../middlewares')
+const { infoValidate, validateJWT } = require('../../Middlewares')
 
 router.get('/all',[
     validateJWT

@@ -1,7 +1,7 @@
 const {response, request} = require('express')
 const jwt = require('jsonwebtoken')
 
-const {returnError} = require('../functions')
+const {returnError} = require('../Functions')
 const {Users} = require('../Models/users')
 
 

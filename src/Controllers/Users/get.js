@@ -1,7 +1,7 @@
 const { response } = require('express')
 const {Users} = require('../../Models/users')
 
-const { returnError, returnSuccessInfo } = require('../../functions')
+const { returnError, returnSuccessInfo } = require('../../Functions')
 
 const GetUser = async (req, res = response) => {
     try {

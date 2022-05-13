@@ -4,7 +4,7 @@ const router = Router()
 
 const { AddHistory, DeleteHistory, UpdateHistory, GetHistory, GetAllHistories } = require('../../Controllers/Register')
 
-const { infoValidate, validateJWT } = require('../../middlewares')
+const { infoValidate, validateJWT } = require('../../Middlewares')
 
 router.get('/',[
     validateJWT

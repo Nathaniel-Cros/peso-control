@@ -1,7 +1,7 @@
 const { response, request } = require('express')
 const {Users} = require("../../Models/users");
 
-const { returnError} = require('../../functions')
+const { returnError} = require('../../Functions')
 
 
 const DeleteUser = async (req = request, res = response) => {

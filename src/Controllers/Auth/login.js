@@ -1,7 +1,7 @@
 const { response } = require('express')
 const bcrypt = require('bcryptjs')
 
-const { returnError, returnSuccessInfo, generatedJWT } = require('../../functions')
+const { returnError, returnSuccessInfo, generatedJWT } = require('../../Functions')
 
 const {Users} = require('../../Models/users')
 

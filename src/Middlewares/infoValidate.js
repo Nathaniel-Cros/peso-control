@@ -1,5 +1,5 @@
 const {validationResult} = require('express-validator')
-const {returnError} = require('../functions')
+const {returnError} = require('../Functions')
 
 
 const infoValidate = (req, res, next) => {
